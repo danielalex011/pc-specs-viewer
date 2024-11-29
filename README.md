@@ -1,3 +1,4 @@
+# pc-specs-viewer
 
 A simple Python application to display your PC specifications using a graphical user interface (GUI).
 
