@@ -3,11 +3,17 @@ from specs import get_specs
 
 def create_ui(specs_text):
     def refresh_specs():
-        new_specs = get_specs()
-        specs_display.configure(state='normal')
-        specs_display.delete(1.0, tk.END)
-        specs_display.insert(tk.END, new_specs)
-        specs_display.configure(state='disabled')
+        try:
+            new_specs = get_specs()
+            specs_display.configure(state='normal')
+            specs_display.delete(1.0, tk.END)
+            specs_display.insert(tk.END, new_specs)
+            specs_display.configure(state='disabled')
+        except Exception as e:
+            specs_display.configure(state='normal')
+            specs_display.delete(1.0, tk.END)
+            specs_display.insert(tk.END, f"An error occurred while refreshing specs: {e}")
+            specs_display.configure(state='disabled')
 
     root = tk.Tk()
     root.title("PC Specs")
