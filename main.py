@@ -6,15 +6,12 @@ def main():
     try:
         # Retrieve system specifications
         specs_text = get_specs()
-        
+
         # Create and display the UI with the retrieved specs
-        create_ui(specs_text)
+        create_ui(specs_text)  # Pass specs_text as an argument
     except Exception as e:
         logging.error(f"An error occurred: {e}")
 
 if __name__ == "__main__":
-    # Configure logging
     logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
-    
-    # Run the main function
     main()
